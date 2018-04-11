@@ -198,6 +198,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Character.cs" />
     <Compile Include="Models\Conexion.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -263,6 +264,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Character\FormCharacter.cshtml" />
     <Content Include="Views\Character\ViewCharacter.cshtml" />
+    <Content Include="Views\Character\ErrorMessage.cshtml" />
+    <Content Include="Views\Character\SuccessMessage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
