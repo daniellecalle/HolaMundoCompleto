@@ -12,6 +12,18 @@ namespace HolaMundoCompleto.Models
 		private float altura;
 		private string tipo;
 
+		public Character()
+		{
+
+		}
+
+		public Character(string nombre, float altura, string tipo)
+		{
+			this.nombre = nombre;
+			this.altura = altura;
+			this.tipo = tipo;
+		}
+
 		public int Id
 		{
 			get { return id; }
