@@ -48,7 +48,18 @@ namespace HolaMundoCompleto.Models
 			set { tipo = value; }
 		}
 
-
+		public bool ValidarCampos()
+		{
+			if (!String.IsNullOrEmpty(nombre) || !String.IsNullOrEmpty(Convert.ToString(altura).ToString())
+					|| !String.IsNullOrEmpty(tipo))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
 
 
 	}

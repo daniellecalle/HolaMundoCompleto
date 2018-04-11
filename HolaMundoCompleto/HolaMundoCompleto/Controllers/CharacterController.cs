@@ -12,6 +12,7 @@ namespace HolaMundoCompleto.Controllers
     public class CharacterController : Controller
     {
 		Conexion con = new Conexion();
+		MySqlConnection a;
 		Character objCh;
 
         // GET: Character
@@ -45,8 +46,34 @@ namespace HolaMundoCompleto.Controllers
 			string tipo = Request["opcion1"];
 			objCh = new Character(nombre,altura,tipo);
 
+			if (!objCh.ValidarCampos())
+			{
+				return View("ErrorMessage1");
+			}
+			else
+			{
+				try
+				{
+					a = con.Conectar();
+				}
+				catch (Exception)
+				{
+					return View("ErrorMessage");
+				}
 
-			return View();
+				string sql = "insert into character values ('"+objCh.Nombre +"', '"+objCh.Altura 
+					+"', '"+objCh.Tipo+"')";
+
+				if (con.Operaracion(sql, a) == 0)
+				{
+					return View("DangerMessage");
+				}
+				else
+				{
+					return View("SuccessMessage");
+				}
+			}
+
 		}
 
 
