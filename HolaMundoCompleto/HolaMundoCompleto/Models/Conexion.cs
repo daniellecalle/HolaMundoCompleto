@@ -9,9 +9,6 @@ namespace HolaMundoCompleto.Models
 {
 	public class Conexion
 	{
-		#region "Atributos"
-			public MySqlConnection conexion;
-		#endregion
 
 		#region "Constructor"
 			public Conexion()
@@ -25,7 +22,7 @@ namespace HolaMundoCompleto.Models
 
 		public MySqlConnection Conectar()
 		{
-			conexion = new MySqlConnection("server=127.0.0.1; port=3306; database=practica; Uid=root; pwd=;");
+			MySqlConnection conexion = new MySqlConnection("server=127.0.0.1; port=3306; database=practica; Uid=root; pwd=;");
 
 			return conexion;
 		}
@@ -35,7 +32,8 @@ namespace HolaMundoCompleto.Models
 			{
 				try
 				{
-					conexion.Open();
+					MySqlConnection con = Conectar();
+					con.Open();
 					return true;
 				}
 				catch(MySqlException ex)
@@ -49,7 +47,8 @@ namespace HolaMundoCompleto.Models
 			{
 				try
 				{
-					conexion.Close();
+					MySqlConnection con = Conectar();
+					con.Close();
 					return true;
 				}
 				catch (MySqlException ex)
@@ -66,12 +65,14 @@ namespace HolaMundoCompleto.Models
 				try
 				{
 					MySqlCommand comando = new MySqlCommand(conSQL, conector);
-					return (comando.ExecuteNonQuery());
+					num = comando.ExecuteNonQuery();
+					return num;
 				}
 				catch (MySqlException)
 				{
 					return num;
 				}
+
 			}
 		#endregion
 	}

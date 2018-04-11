@@ -64,7 +64,9 @@ namespace HolaMundoCompleto.Controllers
 				string sql = "insert into character values ('"+objCh.Nombre +"', '"+objCh.Altura 
 					+"', '"+objCh.Tipo+"')";
 
-				if (con.Operaracion(sql, a) == 0)
+				int n = con.Operaracion(sql, a);
+
+				if (n == 0)
 				{
 					return View("DangerMessage");
 				}
