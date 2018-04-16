@@ -263,7 +263,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Character\FormCharacter.cshtml" />
-    <Content Include="Views\Character\ViewCharacter.cshtml" />
     <Content Include="Views\Character\ErrorMessage.cshtml" />
     <Content Include="Views\Character\SuccessMessage.cshtml" />
     <Content Include="Views\Character\ErrorMessage1.cshtml" />

@@ -1,39 +1,55 @@
-﻿
-@{
-	ViewBag.Title = "SuccessMessage";
-}
+﻿<div class="container">
+	@{
+		ViewBag.Title = "SuccessMessage";
+	}
 
-<center>
-	<div class="alert alert-success alert-dismissible" role="alert">
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		<strong>Guardado: </strong>Registro ingresado correctamente !<br />
-	</div>
-</center>
+	<center>
+		<div class="alert alert-success alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<strong>Guardado: </strong>Registro ingresado correctamente !<br />
+		</div>
+	</center>
 
-<table class="table table-hover">
-	<thead>
-		<tr>
-			<th>ID</th>
-			<th>Nombre</th>
-			<th>Altura</th>
-			<th>Tipo</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>John</td>
-			<td>Doe</td>
-			<td>john@example.com</td>
-		</tr>
-		<tr>
-			<td>Mary</td>
-			<td>Moe</td>
-			<td>mary@example.com</td>
-		</tr>
-		<tr>
-			<td>July</td>
-			<td>Dooley</td>
-			<td>july@example.com</td>
-		</tr>
-	</tbody>
-</table>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nombre</th>
+				<th>Altura</th>
+				<th>Tipo</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>PennyWise</td>
+				<td>1.60</td>
+				<td>Angel</td>
+				<td>
+					<input type="submit" name="btnEliminar" value="Eliminar" class="btn btn-danger" />
+				</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>el chavo</td>
+				<td>1.50</td>
+				<td>Angel</td>
+				<td>
+					<input type="submit" name="btnEliminar" value="Eliminar" class="btn btn-danger" />
+				</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>Dooley</td>
+				<td>1.60</td>
+				<td>Devil</td>
+				<td>
+					<input type="submit" name="btnEliminar" value="Eliminar" class="btn btn-danger" />
+				</td>
+			</tr>
+
+		</tbody>
+	</table>
+
+
+</div>
