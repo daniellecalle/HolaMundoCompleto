@@ -9,7 +9,7 @@ using MySql.Data.MySqlClient;
 
 namespace HolaMundoCompleto.Controllers
 {
-    public class CharacterController : Controller
+	public class CharacterController : Controller
     {
 		Conexion con = new Conexion();
 		MySqlConnection a;
@@ -18,26 +18,10 @@ namespace HolaMundoCompleto.Controllers
         // GET: Character
         public ActionResult Index()
         {
-			try
-			{
-				if (!con.AbrirConexion())
-				{
-					return View("ErrorMessage");
-				}
-				else
-				{
-				    return View("FormCharacter");
-				}
-			}
-			catch(Exception)
-			{
-				con.CerrarConexion();
-				return View("ErrorMessage");
-			}
-        }
+			return View("FormCharacter");
+		}
 
 		[HttpPost]
-		[ActionName("CreateCharacter")]
 		public ActionResult CreateCharacter()
 		{
 			//Capturamos la informaicon de Character
@@ -52,27 +36,18 @@ namespace HolaMundoCompleto.Controllers
 			}
 			else
 			{
-				try
-				{
-					a = con.Conectar();
-				}
-				catch (Exception)
-				{
-					return View("ErrorMessage");
-				}
-
-				string sql = "insert into character values ('"+objCh.Nombre +"', '"+objCh.Altura 
-					+"', '"+objCh.Tipo+"')";
-
+				a = con.Conectar();
+				string sql = "insert into personaje (nombre, altura, tipo) values ('" + objCh.GetNombre()
+					+ "', '" + objCh.GetAltura() + "', '" + objCh.GetTipo() + "')";		
 				int n = con.Operaracion(sql, a);
 
-				if (n == 0)
-				{
-					return View("DangerMessage");
+				if (n != 0)
+				{					
+					return View("SuccessMessage");
 				}
 				else
 				{
-					return View("SuccessMessage");
+					return View("DangerMessage");
 				}
 			}
 
@@ -82,3 +57,4 @@ namespace HolaMundoCompleto.Controllers
 
 	}
 }
+ 

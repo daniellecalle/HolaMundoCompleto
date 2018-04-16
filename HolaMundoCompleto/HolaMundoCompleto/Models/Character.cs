@@ -7,7 +7,6 @@ namespace HolaMundoCompleto.Models
 {
 	public class Character
 	{
-		private int id;
 		private string nombre;
 		private float altura;
 		private string tipo;
@@ -24,28 +23,34 @@ namespace HolaMundoCompleto.Models
 			this.tipo = tipo;
 		}
 
-		public int Id
+		public void SetNombre(string nombre)
 		{
-			get { return id; }
-			set { id = value; }
+			this.nombre = nombre;
 		}
 
-		public string Nombre
+		public string GetNombre()
 		{
-			get { return nombre; }
-			set { nombre = value; }
+			return nombre;
 		}
 
-		public float Altura
+		public void SetAltura(float altura)
 		{
-			get { return altura; }
-			set { altura = value; }
+			this.altura = altura;
 		}
 
-		public string Tipo
+		public float GetAltura()
 		{
-			get { return tipo; }
-			set { tipo = value; }
+			return altura;
+		}
+
+		public void SetTipo(string tipo)
+		{
+			this.tipo = tipo;
+		} 
+
+		public string GetTipo()
+		{
+			return tipo;
 		}
 
 		public bool ValidarCampos()

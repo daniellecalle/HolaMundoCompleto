@@ -4,76 +4,65 @@ using System.Linq;
 using System.Web;
 using MySql.Data.MySqlClient;
 
-
 namespace HolaMundoCompleto.Models
 {
 	public class Conexion
 	{
-
-		#region "Constructor"
+			#region "Constructor"
 			public Conexion()
-			{
+				{
 				
-			}
-		#endregion
+				}
+			#endregion
 
+			#region "Metodos Publicos"
 
-		#region "Metodos Publicos"
-
-		public MySqlConnection Conectar()
-		{
-			MySqlConnection conexion = new MySqlConnection("server=127.0.0.1; port=3306; database=practica; Uid=root; pwd=;");
-
-			return conexion;
-		}
-
-		//Nombre del método que nos conectara a la base de datos
-			public bool AbrirConexion()
+			public MySqlConnection Conectar()
 			{
+				MySqlConnection conexion = new MySqlConnection("server=127.0.0.1; port=3306;" +
+					" database=practica; Uid=root; pwd=;");
+
 				try
 				{
-					MySqlConnection con = Conectar();
-					con.Open();
-					return true;
-				}
-				catch(MySqlException ex)
-				{
-					return false;
-					throw ex;
-				}
-			}
-
-			public bool CerrarConexion()
-			{
-				try
-				{
-					MySqlConnection con = Conectar();
-					con.Close();
-					return true;
+					conexion.Open();
+					return conexion;
 				}
 				catch (MySqlException ex)
 				{
-					return false;
-					throw ex;		
+					Console.WriteLine(ex.Message);
+					return null;
+				}
+			}
+
+			public void CerrarConexion(MySqlConnection conector)
+			{
+				try
+				{
+					conector.Close();
+				}
+				catch (MySqlException ex)
+				{
+					Console.WriteLine(ex.Message);
 				}
 			}
 
 			public int Operaracion(string conSQL, MySqlConnection conector)
 			{
-				int num = 0;
+					int num = 0;
 			 
-				try
-				{
-					MySqlCommand comando = new MySqlCommand(conSQL, conector);
-					num = comando.ExecuteNonQuery();
-					return num;
-				}
-				catch (MySqlException)
-				{
-					return num;
-				}
+					try
+					{						
+						MySqlCommand comando = new MySqlCommand(conSQL, conector);
+						num = comando.ExecuteNonQuery();
+						return num;
+					}
+					catch (MySqlException ex)
+					{
+						Console.WriteLine(ex.ToString());
+						return num;
+					}
 
 			}
-		#endregion
+			#endregion
 	}
 }
