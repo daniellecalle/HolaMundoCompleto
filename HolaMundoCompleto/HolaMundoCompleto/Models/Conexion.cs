@@ -49,18 +49,22 @@ namespace HolaMundoCompleto.Models
 			public int Operaracion(string conSQL, MySqlConnection conector)
 			{
 					int num = 0;
-			 
-					try
-					{						
-						MySqlCommand comando = new MySqlCommand(conSQL, conector);
-						num = comando.ExecuteNonQuery();
-						return num;
-					}
-					catch (MySqlException ex)
-					{
-						Console.WriteLine(ex.ToString());
-						return num;
-					}
+
+				try
+				{
+					MySqlCommand comando = new MySqlCommand(conSQL, conector);
+					num = comando.ExecuteNonQuery();
+					return num;
+				}
+				catch (MySqlException ex)
+				{
+					Console.WriteLine(ex.ToString());
+					return num;
+				}
+				finally
+				{
+					conector.Close();
+				}
 
 			}
 			#endregion

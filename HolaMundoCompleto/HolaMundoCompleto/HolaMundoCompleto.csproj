@@ -265,8 +265,8 @@
     <Content Include="Views\Character\FormCharacter.cshtml" />
     <Content Include="Views\Character\ErrorMessage.cshtml" />
     <Content Include="Views\Character\SuccessMessage.cshtml" />
-    <Content Include="Views\Character\ErrorMessage1.cshtml" />
     <Content Include="Views\Character\DangerMessage.cshtml" />
+    <Content Include="Views\Character\ErrorMessage1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
